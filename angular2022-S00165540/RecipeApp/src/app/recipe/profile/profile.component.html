@@ -1,0 +1,18 @@
+
+
+<div class="profile" *ngIf="user$ | async as user">
+  <img 
+      [src]="user.picture"
+      alt="User's Profile Picture"
+      class="rounded-circle img-fluid profile-picture">
+  <h1>{{ user.name }}</h1>
+  <p>{{ user.email }}</p>
+</div>
+
+<div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+  {{message}}
+ <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+</div>
+<span class="add" >
+<button (click)="openAddRecipe()" *ngIf="!showRecipeForm" class="create-recipe-btn">Create Recipe</button>
+</span>

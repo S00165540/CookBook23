@@ -1,0 +1,49 @@
+
+  .top-nav-collapse {
+    background-color: #78909c ;
+  }
+  .view {
+    height: 70vh;
+  }
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+  @media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+      background: #78909c !important;
+    }
+  }
+  h1 {
+    letter-spacing: 8px;
+  }
+  h5 {
+    letter-spacing: 3px;
+  }
+  .hr-light {
+    border-top: 3px solid #fff;
+    width: 80px;
+  }
+ 
+  .card-img-top {
+    padding:5px;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card {
+  width:200px;
+  height:250px;
+}
+ 
+.card-title {
+font-size: 14px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+
+}
+
+.container {
+  padding-top:80px;
+  padding-right:180px;
+}
+

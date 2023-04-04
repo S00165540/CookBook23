@@ -1,0 +1,46 @@
+.container {
+  max-width: 600px;
+  margin-top: 50px;
+}
+.h3 {
+   margin:auto;
+   align-items: center;
+
+}
+
+  form {
+    background-color: #f8f0e4;
+    padding: 20px;
+    border-radius: 5px;
+    width:700px;
+    ;
+  }
+  @media (max-width: 900px) {
+    .container {
+      margin-top: 20px;
+    }
+  }
+ .btn {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 3rem;
+    background-color: #f3ab52;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+ .btn:hoover {
+    background-color: #f3ab52;
+    transform: translateY(-2px);
+  }
+  .btn:active {
+    background-color: #f3ab52;
+    transform: translateY(-2px);
+  }
+  

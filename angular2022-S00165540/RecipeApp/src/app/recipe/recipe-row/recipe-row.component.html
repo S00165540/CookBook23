@@ -1,0 +1,19 @@
+
+
+         
+          <div class="container-fluid">
+
+
+            <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+               {{message}}
+              <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+            </div>
+            
+            
+
+
+       
+           <span class="add" >
+              <button (click)="openAddRecipe()" *ngIf="!showRecipeForm" class="btn btn-lg btn-outline-primary">Add </button>
+  
+            </span>

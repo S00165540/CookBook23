@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+    <button type="button" class="btn" (click)="goBack()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+          </svg> Back to profile
+      </button><h2>Please Enter details about a recipe</h2>
+      <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+        {{message}}
+       <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+     </div>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="form-group"  >
+  
+    <div class="form-group-row">
+        <label for="recipeName"> Recipe Name</label>
+        <input id="recipeName" type="text" formControlName="recipeName" class="form-control">
+        <div *ngIf="recipeName?.invalid && recipeName?.touched"  class="alert alert-danger" >
+            Recipe Name is required and must be at least 4 letters
+        </div>
+        
+    </div>
+    <div class="mb">
+        <label for="serves"> Serving Size</label>
+        <input id="serves" type="text" formControlName="serves" class="form-control" >
+        
+
+    <div formGroupName="ingredients">
+        <legend>Ingredients</legend>
+    <div class="mb">
+        <label for="ingredientList">Ingredients</label>
+        <input id="ingredientList" type="text" formControlName="ingredientList" class="form-control" >
+        <div *ngIf="ingredientList?.invalid && ingredientList?.touched"  class="alert alert-danger" >
+                 You must enter ingredients</div>
+      </div>
+  
+    <div class="mb">
+        <label for="nutrition"> Nutrition</label>
+        <input id="nutrition" type="nutrition" formControlName="nutrition" class="form-control">
+    </div>
+</div>
+
+
+<div formGroupName="method">
+    <legend>Method</legend>
+       <div class="mb">
+        <label for="stepOne">Step 1</label>
+        <input id="stepOne" type="text" formControlName="stepOne" class="form-control" >
+        <div *ngIf="stepOne?.invalid && stepOne?.touched"  class="alert alert-danger" >
+          Your method must have atleast one step containing more than 20 characters          </div>
+    </div>
+    <div class="mb">
+        <label for="stepTwo">Step 2</label>
+        <input id="stepTwo" type="text" formControlName="stepTwo" class="form-control" >
+    </div>
+    <div class="mb">
+        <label for="stepThree">Step 3</label>
+        <input id="stepThree" type="text" formControlName="stepThree" class="form-control">
+    </div>
+</div>
+<div class="mb">
+    <label for="cookTime"> Cook Time</label>
+    <input prepTime id="cookTime" type="text" formControlName="cookTime" class="form-control">
+     
+
+</div>
+<div class="mb">
+    <label for="prepTime"> Prep Time</label>
+    <input  id="prepTime" type="text" formControlName="prepTime" class="form-control">
+    
+
+</div>
+<div class="mb">
+    <label for="mealType"> Meal Type</label>
+    <input id="mealType" type="text" formControlName="mealType" class="form-control">
+    <div *ngIf="mealType?.invalid && mealType?.touched"  class="alert alert-danger" >
+        Meal types are  Breakfast lunch or dinner!
+      </div>
+     
+    
+</div>
+<div formGroupName="image">
+    <legend>Image</legend>
+<div class="mb">
+    <input type="text" class="form-control" formControlName="url" id="url">
+  </div> 
+</div>
+<button  type="submit"  [disabled]="!recipeForm.valid"> SUBMIT</button>
+</div>
+</form>
+
+
+
+
+    

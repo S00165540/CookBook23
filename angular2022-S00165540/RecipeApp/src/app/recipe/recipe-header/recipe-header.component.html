@@ -1,0 +1,52 @@
+
+
+<nav class="navbar navbar-expand-md ">
+  <div class="container">
+    <a class="navbar-brand" href="#">Cookbook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+  
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/community">Community</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/recipes">Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin">Admin</a>
+        </li>
+      </ul>
+      </div>
+      <div class="d-flex align-items-center ">
+
+              <button type="button" *ngIf="!(isAuthenticated$ | async)" class="btn btn- col-6 " 
+              (click)=handleLogin()>
+                  Login
+              </button>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+              <button type="button" *ngIf="!(isAuthenticated$ | async)" class="btn btn-col-6 " 
+              (click)=handleSignUp()>
+                  SignUp
+              </button>
+
+
+              <button *ngIf="isAuthenticated$ | async"
+              class="btn btn- me-3"
+              (click)= handleLogout()>
+                  Log Out
+              </button>
+    </div>
+    </div>
+  </nav> 

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="card-group">
+  <div class="row">
+  <div class="card col-md-3" *ngFor="let recipe of recipeList"  (click)='clicked(recipe._id)'
+        
+  [class.bg-dark]="isSelected(recipe)" [class.text-white]="isSelected(recipe)" routerLink="recipes">
+  <img class="card-img-top" *ngIf="recipe.image?.url" [src]="recipe.image.url" [alt]="recipe.recipeName ">
+ 
+
+  <p class="card-title">{{recipe.recipeName}}</p>
+  <app-fave></app-fave>
+            </div></div>
+            </div>
+          
+          </div>
+            <router-outlet></router-outlet>

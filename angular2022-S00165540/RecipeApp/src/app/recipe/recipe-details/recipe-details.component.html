@@ -1,0 +1,29 @@
+<div class="container">
+<div class="card-group"> <div *ngIf="recipe">
+  <div class="row">
+  <div class="card col">
+    <img class="img" *ngIf="recipe.image?.url" [src]="recipe.image.url" [alt]="recipe.recipeName ">
+    <h1 style="text-align: center;"> {{recipe.recipeName}}</h1> 
+
+  <div class="recipe-details">
+    <div class="cook"><b>
+     Cook in : {{recipe.cookTime }}</b></div>
+    <div class="prep" ><b>Prep : {{recipe.prepTime}}</b></div>
+    <div class="serves"><b>Serves : {{recipe.serves}}</b></div>
+  </div>
+  <ul> 
+    <li class="list-group-item"> <b>Ingredients : </b>
+        {{recipe.ingredients.ingredientList}}</li>  
+        <li class="list-group-item">  <b>Nutrition:</b>{{recipe.ingredients.nutrition}}</li>  
+        <li class="list-group-item">  
+    <b>Method :</b>
+        {{recipe.method.stepOne}}
+        {{recipe.method.stepTwo}}
+        {{recipe.method.stepThree}}</li>
+   </ul> 
+  </div>
+
+    </div>
+    </div>
+    </div>
+</div>
