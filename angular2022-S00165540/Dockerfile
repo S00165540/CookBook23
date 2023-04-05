@@ -1,27 +1,10 @@
-#Build Front ENd 
-FROM node:14-alpine AS client_build
 
+FROM node:18
 WORKDIR /app
-
-COPY ./RecipeApp /app/
-
+COPY package*.json ./
 RUN npm install
-RUN node_modules/.bin/ng build --configuration production
-
-#Build Backend 
-FROM node:14-alpine AS server_build
-
-COPY ./restapi2022-S00165540 /app/
-COPY --from=client_build /app/dist/recipe-app /app/dist/recipe-app
-
-RUN npm install --production
-
-#build docker
-FROM alpine
-
-WORKDIR /app
-RUN apk add --no-cache nodejs
-
-COPY --from=server_build /app ./
-EXPOSE 4200 
-
+COPY RecipeApp/ ./RecipeApp
+COPY restapi2022-S00165540/ ./restapi2022-S00165540
+RUN cd RecipeApp && npm run build
+EXPOSE 4200 3000
+CMD ["npm", "run", "start", "--prefix", "restapi2022-S00165540"]
