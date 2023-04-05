@@ -28,7 +28,7 @@ const { default: mongoose } = require('mongoose');
 const { Recipe } = require('./models/recipes');
 
 
-app.use(express.json());
+app.use(express.static('./dist/recipe-app'));
 
 
 
@@ -47,4 +47,4 @@ app.use('/users', users);
  app.use('/auth', auth)
 
 
-app.listen(port, () => console.log(`Example app listening on ${port}!`))
+app.listen(port, () => console.log(` app listening on ${port}!`))

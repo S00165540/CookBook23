@@ -16,3 +16,19 @@
 <span class="add" >
 <button (click)="openAddRecipe()" *ngIf="!showRecipeForm" class="create-recipe-btn">Create Recipe</button>
 </span>
+<div class="container">
+  <div class="profile-header">
+  <h1 class="profile-title">My Recipes</h1>
+</div>
+
+<div class="recipe-list">
+  <div class="recipe-item" *ngFor="let recipe of recipeList">
+    <img class="img" *ngIf="recipe.image?.url" [src]="recipe.image.url" >
+    <div class="recipe-details">
+      <h3>{{ recipe.recipeName }}</h3>
+     
+      <button class="view-recipe-button">View Recipe</button>
+    </div>
+  </div>
+</div>
+</div>

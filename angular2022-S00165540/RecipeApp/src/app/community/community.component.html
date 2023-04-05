@@ -18,9 +18,19 @@
             </button>
           </div>
         </div>
-      </div>  
-
-      <div class="container">
-        <h2>Browse Popular Categories</h2>
-      
+    
+ 
+        <div class="profile-header">
+        <h1 class="profile-title"> Top Rated Recipes</h1>
+      </div>
+      <div class="recipe-list">
+        <div class="recipe-item" *ngFor="let recipe of recipeList">
+          <img class="img" *ngIf="recipe.image?.url" [src]="recipe.image.url" >
+          <div class="recipe-details">
+            <h3>{{ recipe.recipeName }}</h3>
+           
+            <button class="view-recipe-button">View Recipe</button>
+          </div>
+        </div>
+      </div>
       </div>
