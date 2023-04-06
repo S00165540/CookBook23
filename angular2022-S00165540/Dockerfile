@@ -1,8 +1,20 @@
+# need to use the specific version of node that is dist is built 
+FROM node:16.16.0 AS builder
 
-FROM node:16-alpine
-WORKDIR /app
+WORKDIR /recipe-app
+
 COPY package*.json ./
+
 RUN npm install
-COPY RecipeApp/ ./RecipeApp
-COPY restapi2022-S00165540/ ./restapi2022-S00165540
-RUN cd RecipeApp && npm run build
+
+COPY . .
+
+RUN npm run build
+
+FROM nginx:latest
+
+COPY --from=builder /recipe-app/dist/recipe-app /usr/share/nginx/html
+
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
