@@ -1,0 +1,56 @@
+{
+  "name": "cookbook",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000C\u0000o\u0000o\u0000k\u0000B\u0000o\u0000o\u0000k\u00002\u00003\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^15.2.3",
+
+    "@angular/compiler": "^15.2.3",
+    "@angular/core": "^15.2.3",
+    "@angular/forms": "^15.2.3",
+    "@angular/material": "^15.2.3",
+    "@angular/platform-browser": "^15.2.3",
+    "@angular/platform-browser-dynamic": "^15.2.3",
+    "@angular/router": "^15.2.3",
+    "@auth0/auth0-angular": "^1.11.1",
+    "@ng-bootstrap/ng-bootstrap": "^14.0.0",
+    "@popperjs/core": "^2.11.6",
+    "ag-grid-angular": "^28.2.1",
+    "ag-grid-community": "^28.2.1",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.10.3",
+    "cors": "^2.8.5",
+    "jarallax": "^2.0.4",
+    "material-icons": "^1.13.2",
+    "popper.js": "^1.16.1",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.2.4",
+    "@angular/cli": "~15.0.4",
+    "@angular/compiler-cli": "^15.2.3",
+    "@types/jasmine": "~4.0.0",
+    "jasmine-core": "~4.3.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~4.8.4"
+  
+
+  },
+  "author": "",
+  "license": "ISC"
+}

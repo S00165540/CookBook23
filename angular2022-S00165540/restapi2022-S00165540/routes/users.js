@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 require('dotenv').config();
-const passport = require('passport');
+const passport = require('passport/lib');
 const jwt = require("jsonwebtoken");
 const { Users, User } = require('../models/users');
 const router = express.Router();
