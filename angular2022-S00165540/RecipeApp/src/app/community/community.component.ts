@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
+import { AdsenseModule } from 'ng2-adsense/adsense.module';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-community',
@@ -14,43 +16,49 @@ export class CommunityComponent {
   public recipeId: any;
   recipeList: Recipe[] = [];
     message: any;
-  recipeName= '';
+  public recipeName= '';
 
- 
+ searchKey:string = "";
 
   currentRecipe : Recipe | undefined;
   showRecipeForm:boolean = false;
 
-  constructor(private recipeService: RecipeService, private router: Router,private route:ActivatedRoute) { }
+  constructor(private  recipeService: RecipeService, private https: HttpClient, private router: Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
 
-      const id = this.route.snapshot.paramMap.get('id');
-    this.recipeService.getRecipe(id).subscribe(recipe => {
-      this.recipes = recipe;
 
-    })
+    }
+
+
+  searchTitle(recipeName:string): void {
+    this.recipeService.findByRecipeName(recipeName).subscribe(
+    (recipeList: Recipe[]) =>  {
+      this.recipeList = recipeList;
+    },
+
+    (error: any) => console.log(error)
+    );
+  }
+
+  clicked (id:any): void {
+    this.router.navigate(['/recipes', id]);
     
   }
-
-  searchTitle(): void {
-    this.recipeService.findByRecipeName(this.recipeName)
-      .subscribe(
-        data => {
-          this.recipes = data;
-          console.log(data);
-        },
-        error => {
-          console.log(error);
-        });
-  }
   
 
 
+
+        // data => {
+        //   this.recipes = data;
+        //   console.log(data);
+        // },
+        // error => {
+        //   console.log(error);
+        // });
+
   
-  clicked (recipe:Recipe): void {
-    this.currentRecipe = recipe
-  }
+
 
   dismissAlert() {
     this.message = "";

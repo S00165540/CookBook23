@@ -11,7 +11,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^15.2.3",
-
     "@angular/compiler": "^15.2.3",
     "@angular/core": "^15.2.3",
     "@angular/forms": "^15.2.3",
@@ -29,6 +28,7 @@
     "cors": "^2.8.5",
     "jarallax": "^2.0.4",
     "material-icons": "^1.13.2",
+    "ng2-adsense": "^11.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

@@ -12,6 +12,10 @@ export const environment = {
     clientId:'MABgsYxoSd1zEOMBcYRAiBe2UVpRuI3v',
     callback_URL:'localhost:4200/callback',
     audience:'recipesid'
+  },
+  adsense: {
+    adClient: 'ca-pub-6676770754991875',
+    show: true
   }
 };
 

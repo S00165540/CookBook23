@@ -5,6 +5,7 @@
   .view {
     height: 70vh;
   }
+  
   .navbar:not(.top-nav-collapse) {
     background: transparent !important;
   }
@@ -31,8 +32,9 @@
 }
 
 .card {
+  
   width:200px;
-  height:250px;
+  height:200px;
 }
  
 .card-title {

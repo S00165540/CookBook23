@@ -6,19 +6,37 @@
             type="text"
             class="form-control"
             placeholder="Search by meal"
-           [(ngModel)]="recipeName"
+            [(ngModel)]="recipeName" 
+        
           />
           <div class="input-group-append" >
             <button
               class="btn btn-outline-sescondary"
-              type="button"  
-              (click)="searchTitle()"
+              type="button" 
+              
+              (click)="searchTitle(recipeName)"
             >
               Search
-            </button>
+            </button> 
           </div>
-        </div>
-    
+          </div>
+          </div>
+
+         
+          <div class="card-group">
+            <div class="row">
+            <div class="card col-md-3" *ngFor="let recipe of recipeList"  (click)='clicked(recipe._id)'
+                  
+            [class.bg-dark]="isSelected(recipe)" [class.text-white]="isSelected(recipe)" routerLink="recipes">
+            <img class="card-img-top" *ngIf="recipe.image?.url" [src]="recipe.image.url" [alt]="recipe.recipeName ">
+          
+             <p class="card-title">{{recipe.recipeName}}</p>
+                      </div>
+                    </div>
+                     
+                      </div>
+
+<!-- 
  
         <div class="profile-header">
         <h1 class="profile-title"> Top Rated Recipes</h1>
@@ -33,4 +51,38 @@
           </div>
         </div>
       </div>
+      <h2>Community Recipes</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Breakfast Recipes</h3>
+      <ul>
+        <li *ngFor="let recipe of recipeList   ">
+          {{ recipe.name }}
+          <p>{{ recipe.description }}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Lunch Recipes</h3>
+      <ul>
+        <li *ngFor="let recipe of recipeList">
+          {{ recipe.name }}
+          <p>{{ recipe.description }}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h3>Dinner Recipes</h3>
+      <ul>
+        <li *ngFor="let recipe of recipeList">
+          {{ recipe.name }}
+          <p>{{ recipe.description }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
       </div>
+
+
+        -->

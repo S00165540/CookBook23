@@ -33,11 +33,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let recipe of recipeList">
+        <tr *ngFor="let recipe of recipeList" (click)='clicked(recipe)'
+        
+        [class.bg-light]="isSelected(recipe)" [class.text-white]="isSelected(recipe)">
           <td>{{recipe._id}}</td>
           <td>{{recipe.recipeName}}</td>
          
-          <td><button (click)="deleteRecipe()">Delete</button></td>
+          <td><button [disabled]="!currentRecipe" (click)="deleteRecipe()">Delete</button></td>
         </tr>
       </tbody>
     </table>

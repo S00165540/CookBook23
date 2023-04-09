@@ -12,7 +12,7 @@ import { RecipeHeaderComponent } from './recipe/recipe-header/recipe-header.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { AdsComponent } from './recipe/ads/ads.component';
 import { AuthHttpInterceptor, AuthModule} from '@auth0/auth0-angular';
 import { environment } from 'src/environments/environment';
 import { ProfileComponent } from './recipe/profile/profile.component';
@@ -26,6 +26,8 @@ import { RecipesRoutingModule } from './recipe/recipes-routing.module';
 import { FaveComponent } from './recipe/fave/fave.component';
 import { Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { AdsenseModule } from 'ng2-adsense';
+import { FilterPipe } from './shared/filter.pipe';
 const routes: Routes = [
 
   {path: '', component: HomeComponent},
@@ -54,7 +56,9 @@ const routes: Routes = [
     CommunityComponent,
     LoginComponent,
     RegisterComponent,
-    AdminComponent
+    AdsComponent,
+    AdminComponent,
+    FilterPipe
   ],
   
   imports: [
@@ -66,7 +70,7 @@ const routes: Routes = [
     
 RecipesRoutingModule,
     RouterModule.forRoot(routes),
-    
+    AdsenseModule.forRoot(),
     NgbModule,
     AuthModule.forRoot({...environment.auth0,
       httpInterceptor: {

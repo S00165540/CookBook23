@@ -65,7 +65,6 @@ router.get('/:id', async (req,res) =>  {
 })
 
 
-
 router.delete('/:id', async (req, res) => {
     try {
         const recipe = await Recipe.findByIdAndDelete(req.params.id);
@@ -105,6 +104,30 @@ router.put('/:id', async (req, res) => {
 
 })
 
+router.get('/recipes/breakfast', async (req,res) => {
+    try {
+        const recipes = await Recipe.findByMealType({ mealType: 'Breakfast'});
+        res.json(recipes);
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+});
+router.get('/recipes/lunch', async (req,res) => {
+    try {
+        const recipes = await Recipe.findByMealType({ mealType: 'Lunch'});
+        res.json(recipes);
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+});
+router.get('/recipes/dinner', async (req,res) => {
+    try {
+        const recipes = await Recipe.findByMealType({ mealType: 'Dinner'});
+        res.json(recipes);
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+});
 
 
 module.exports = router;

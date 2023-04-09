@@ -5,12 +5,12 @@
         
   [class.bg-dark]="isSelected(recipe)" [class.text-white]="isSelected(recipe)" routerLink="recipes">
   <img class="card-img-top" *ngIf="recipe.image?.url" [src]="recipe.image.url" [alt]="recipe.recipeName ">
- 
 
   <p class="card-title">{{recipe.recipeName}}</p>
-  <app-fave></app-fave>
-            </div></div>
             </div>
-          
           </div>
+           
+            </div>
+          </div>
+          <!-- <ng-adsense [adClient]="'ca-pub-6676770754991875'" [pageLevelAds]="true"></ng-adsense> -->
             <router-outlet></router-outlet>

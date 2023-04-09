@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
@@ -10,7 +10,7 @@ import { RecipeService } from '../recipe.service';
 })
 export class AdminComponent {
   @Input() recipe!: Recipe;
-
+recipeId!: string;
   recipeName= '';
   recipes: Recipe[] = [];
   recipeList: Recipe[] = [];
@@ -20,7 +20,7 @@ export class AdminComponent {
 
   showRecipeForm:boolean = false;
 
-  constructor(private recipeService: RecipeService, private router: Router) { }
+  constructor(private recipeService: RecipeService, private router: ActivatedRoute, private route:Router) { }
 
  
   ngOnInit(): void {
@@ -34,7 +34,11 @@ export class AdminComponent {
     })
     
   }
-
+  
+  clicked (recipe:Recipe): void {
+    this.currentRecipe = recipe
+  }
+ 
   deleteRecipe() {
     console.log('deleting a recipe');
     if (this.currentRecipe) {

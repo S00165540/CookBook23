@@ -22,7 +22,7 @@
 </div>
 
 <div class="recipe-list">
-  <div class="recipe-item" *ngFor="let recipe of recipeList">
+  <div class="recipe-item" *ngFor="let recipe of recipeList" >
     <img class="img" *ngIf="recipe.image?.url" [src]="recipe.image.url" >
     <div class="recipe-details">
       <h3>{{ recipe.recipeName }}</h3>

@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     
 
-    this.recipeService.getRecipes().subscribe({
+    this.recipeService.getCreatedBy('seafra').subscribe({
       next: (value: Recipe[])=> this.recipeList = value,
       complete: () => console.log('recipe service finished'),
       error: (mess) => this.message = mess
