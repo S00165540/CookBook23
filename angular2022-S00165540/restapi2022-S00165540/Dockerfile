@@ -1,5 +1,5 @@
 #Node js base image from the docker image
-FROM node:14-slim
+FROM node:14-alpine
 #Creates a working directory within the Docker image
 WORKDIR /restapi2022-s00165540
 
