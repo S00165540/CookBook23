@@ -11,7 +11,7 @@ RUN npm install
 
 COPY . /recipe-app/
 
-RUN npm run build --prod
+RUN npm run build  --omit=dev
 
 FROM nginx:latest
 

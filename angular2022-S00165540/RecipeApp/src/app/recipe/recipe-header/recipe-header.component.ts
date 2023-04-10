@@ -28,6 +28,6 @@ export class RecipeHeaderComponent implements OnInit {
     this.auth.loginWithRedirect({appState: { target: '/profile',}})
   }
   handleSignUp() {
-    this.auth.loginWithRedirect({screen_hint:"signup"})
+    this.auth.loginWithRedirect();
   }
 }
