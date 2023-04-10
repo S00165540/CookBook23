@@ -81,7 +81,10 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     let result = ValidateRecipe(req.body)
-
+    const recipe  = await Recipe.findOne({_id: req.params.id});
+    recipe.isFavorite = req.body.isFavorite;
+    await recipe.save(); 
+    res.status(200).json(recipe);
     if (result.error) {
       res.status(400).json(result.error);
       return;
@@ -127,6 +130,16 @@ router.get('/recipes/dinner', async (req,res) => {
     } catch (err) {
         res.status(500).json({message: err.message});
     }
+});
+router.get('/recipes/:id/favorite', async (req,res) => {
+    Recipe.find({ isFavorite: true}, (err, recipes) => {
+        if (err) {
+console.error(err);
+return res.status(500).json({message: 'failed'});
+
+        }
+        res.json(recipes);
+    });
 });
 
 

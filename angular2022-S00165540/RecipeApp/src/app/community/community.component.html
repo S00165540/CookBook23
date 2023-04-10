@@ -33,9 +33,15 @@
              <p class="card-title">{{recipe.recipeName}}</p>
                       </div>
                     </div>
-                     
+                    <div *ngFor="let recipe of favoriteRecipes">
+                      <h2>{{ recipe.name }}</h2>
+                      <p>{{ recipe.description }}</p>
+                    
+                    </div>
+
                       </div>
 
+                    
 <!-- 
  
         <div class="profile-header">

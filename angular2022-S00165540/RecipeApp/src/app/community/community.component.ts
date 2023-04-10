@@ -19,16 +19,25 @@ export class CommunityComponent {
   public recipeName= '';
 
  searchKey:string = "";
-
+ isFavorite: boolean = false;
   currentRecipe : Recipe | undefined;
   showRecipeForm:boolean = false;
+  
 
+  favoriteRecipes: Recipe[] =  this.recipeList.filter(recipe => recipe.isFavorite);;
   constructor(private  recipeService: RecipeService, private https: HttpClient, private router: Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    this.recipeService.getRecipes().subscribe(
+      recipes => {
+        this.recipes = recipes;
+        this.favoriteRecipes = recipes.filter(recipe => recipe.isFavorite); // Access the isFavorite property on the Recipe object
+      },
+      error => console.error(error)
+    );
 
     }
+ 
 
 
   searchTitle(recipeName:string): void {

@@ -50,7 +50,7 @@ content-type : application/json
 
 ###
 ## put request on an individual
-PUT http://localhost:/3000/recipes/63505741bf8de87da48c6c4 HTTP/1.1
+PUT http://localhost:/3000/recipes/643335446de9b2af1c8e4aee HTTP/1.1
 content-type : application/json
 
 
@@ -93,4 +93,5 @@ content-type: application/json
 "email" : "seafra@westport.ie",
 "password" : "april25",
 "roles": ["admin", "edit"]}
+
 

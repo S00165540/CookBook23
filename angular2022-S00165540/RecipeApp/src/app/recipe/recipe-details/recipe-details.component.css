@@ -9,4 +9,18 @@
     padding-top:80px;
     padding-right:180px;
   }
-  
+  .favorite-button {
+    display: inline-block;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }

@@ -30,7 +30,8 @@ const recipeSchema = new mongoose.Schema({
     prepTime:String,
     mealType: String,
     createdBy: { type:mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    isFavorite: { type: Boolean, default: false }
 }
 
 })
@@ -74,6 +75,8 @@ function ValidateRecipe(recipe) {
             .valid('dinner', 'Dinner', 'lunch', 'Lunch', 'Breakfast', 'breakfast')
             .required(),
             image:imageSchema,
+            createdBy: Joi.string(),
+            isFavorite: Joi.boolean()
     })
     return recipeJoiSchema.validate(recipe);
 }

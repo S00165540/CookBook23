@@ -3,6 +3,8 @@
   <div class="row">
   <div class="card col">
     <img class="img" *ngIf="recipe.image?.url" [src]="recipe.image.url" [alt]="recipe.recipeName ">
+  <button class="favorite-button" (click)='toggleFavorite(recipe)'>{{ isFavorite ? 'Remove from Favorites' : 'Add to Favorites' }}</button>
+
     <h1 style="text-align: center;"> {{recipe.recipeName}}</h1> 
 
   <div class="recipe-details">

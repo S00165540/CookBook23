@@ -27,14 +27,14 @@
  
   .card-img-top {
     padding:5px;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
 }
 
 .card {
   
   width:200px;
-  height:200px;
+  height:250px;
 }
  
 .card-title {

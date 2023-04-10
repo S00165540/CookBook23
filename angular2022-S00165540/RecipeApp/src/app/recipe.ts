@@ -10,6 +10,7 @@ image: { url:String},
     prepTime: string,
     mealType: string,
     creadtedBy:string,
+    isFavorite:boolean
 }
 export class Banner {
   constructor(

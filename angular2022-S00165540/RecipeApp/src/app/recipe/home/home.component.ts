@@ -15,11 +15,13 @@ export class HomeComponent implements OnInit {
   recipeName= '';
   recipes: Recipe[] = [];
   recipeList: Recipe[] = [];
+  
   message: string = "";
 
   currentRecipe : Recipe | undefined;
 
   showRecipeForm:boolean = false;
+  
 
   constructor(private recipeService: RecipeService, private router: Router) { }
 
@@ -88,6 +90,7 @@ export class HomeComponent implements OnInit {
 
     this.ngOnInit();
   }
+  
 
 
   recipeFormClose(recipe?: any): void {

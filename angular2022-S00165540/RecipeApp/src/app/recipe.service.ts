@@ -12,7 +12,7 @@ import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component'
 export class RecipeService {
 
   private dataUri = `${environment.apiUri}/recipes`;
-
+  isFavorite = false;
 
 
   constructor(private http: HttpClient) { }
@@ -62,7 +62,18 @@ getRecipe(id: any): Observable<Recipe> {
       catchError(this.handleError)
     );
   }
- 
+ getFavoriteRecipe(id:string, recipe:Recipe): Observable<Recipe> {
+  console.log("get recipe called" );
+  return this.http.get<Recipe>(`${this.dataUri}/${id}`)
+  .pipe(
+    retry(3),
+    catchError(this.handleError)
+  )!;
+ }
+ updateRecipeFave(id: string, changes: any): Observable<any> {
+  const url = `${this.dataUri}/${id}`;
+  return this.http.put(url, changes);
+}
 
   updateRecipe(id:string, recipe:Recipe): Observable<Recipe> {
     console.log('subto update' + id);
