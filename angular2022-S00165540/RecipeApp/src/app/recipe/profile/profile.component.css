@@ -135,7 +135,7 @@ padding-right:300px ;
     margin: 10px 0;
   }
   
-  .view-recipe-button {
+  .edit-button{
     background-color: #f44336;
     border: none;
     color: #fff;
@@ -147,6 +147,6 @@ padding-right:300px ;
     transition: background-color 0.2s;
   }
   
-  .view-recipe-button:hover {
+  .edit-button:hover {
     background-color: #d32f2f;
   }

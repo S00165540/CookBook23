@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
     
     
   }
+  redirect() {
+    window.location.href = "https://www.tesco.ie";
+  }
 
   dismissAlert() {
     this.message = "";

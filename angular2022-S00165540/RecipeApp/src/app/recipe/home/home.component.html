@@ -8,9 +8,16 @@
 
   <p class="card-title">{{recipe.recipeName}}</p>
             </div>
-          </div>
-           
+            <div class="ad-container">
+              <img class="ad-image" src="tesco.jpg" alt="Ad image">
+              <h2 class="ad-title">Get your ingredients at Tesco</h2>
+              <p class="ad-description">Every little helps</p>
+              <button class="ad-button" (click)='redirect()'>Learn More</button>
             </div>
+          </div>
+          
+            </div>
+           
           </div>
           <!-- <ng-adsense [adClient]="'ca-pub-6676770754991875'" [pageLevelAds]="true"></ng-adsense> -->
             <router-outlet></router-outlet>
