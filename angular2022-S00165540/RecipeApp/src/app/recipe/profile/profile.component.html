@@ -22,12 +22,14 @@
 </div>
 
 <div class="recipe-list">
-  <div class="recipe-item" *ngFor="let recipe of recipeList" >
+  <div class="recipe-item" *ngFor="let recipe of myRecipes" (click)='clicked(recipe._id)'
+                  
+  [class.bg-dark]="isSelected(recipe)" [class.text-white]="isSelected(recipe)" routerLink="recipes" >
     <img class="img" *ngIf="recipe.image?.url" [src]="recipe.image.url" >
     <div class="recipe-details">
       <h3>{{ recipe.recipeName }}</h3>
      
-      <button class="edit-button">EDIT</button>
+      <button (click)="openAddRecipe()" *ngIf="!showRecipeForm" [disabled]="!currentRecipe" class="edit-button">EDIT</button>
     </div>
   </div>
 </div>

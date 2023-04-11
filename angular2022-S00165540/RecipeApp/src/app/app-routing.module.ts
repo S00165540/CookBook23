@@ -13,10 +13,10 @@ const routes: Routes = [
 
   {path: '', component: HomeComponent},
   {path: 'community', component:CommunityComponent},
-  {path: 'recipes/:id',component: RecipeDetailsComponent,canActivate:[AuthGuard]},
-  {path: 'profile', component: ProfileComponent,canActivate:[AuthGuard]},
-  {path:'admin',component:AdminComponent,canActivate:[AuthGuard]},
-  {path: 'recipe-form', component:RecipeFormComponent, canActivate:[AuthGuard]}
+  {path: 'recipes/:id',component: RecipeDetailsComponent}, //,canActivate:[AuthGuard]
+  {path: 'profile', component: ProfileComponent},//,canActivate:[AuthGuard]
+  {path:'admin',component:AdminComponent},//,canActivate:[AuthGuard]
+  {path: 'recipe-form', component:RecipeFormComponent} //, canActivate:[AuthGuard]
 
 
  

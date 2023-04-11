@@ -1,4 +1,5 @@
 <div class="container">
+  <h2>Community Recipes</h2>
     <div class="list row">
       <div class="col-md-8 " >
         <div class="input-group mb-3" >
@@ -43,7 +44,6 @@
 
                     
 <!-- 
- 
         <div class="profile-header">
         <h1 class="profile-title"> Top Rated Recipes</h1>
       </div>
@@ -56,33 +56,40 @@
             <button class="view-recipe-button">View Recipe</button>
           </div>
         </div>
-      </div>
-      <h2>Community Recipes</h2>
+      </div> -->
+      
   <div class="row">
     <div class="col-md-4">
       <h3>Breakfast Recipes</h3>
-      <ul>
-        <li *ngFor="let recipe of recipeList   ">
-          {{ recipe.name }}
-          <p>{{ recipe.description }}</p>
+      
+        <img href="https://media.istockphoto.com/id/938158500/photo/breakfast-table.jpg?s=612x612&w=0&k=20&c=Y8xB6hfe4dSPNyNrPgzP7slHbKhWdEzG7YTk2WXu4lQ=">
+        <li *ngFor="let recipe of breakfastRecipes" (click)='clicked(recipe._id)'
+        
+        [class.bg-dark]="isSelected(recipe)" [class.text-white]="isSelected(recipe)" routerLink="recipes">
+          {{ recipe.recipeName }}
+  
         </li>
-      </ul>
+      
     </div>
     <div class="col-md-4">
       <h3>Lunch Recipes</h3>
       <ul>
-        <li *ngFor="let recipe of recipeList">
-          {{ recipe.name }}
-          <p>{{ recipe.description }}</p>
+        <li *ngFor="let recipe of lunchRecipes" (click)='clicked(recipe._id)'
+        
+        [class.bg-dark]="isSelected(recipe)" [class.text-white]="isSelected(recipe)" routerLink="recipes">
+          {{ recipe.recipeName }}
+        
         </li>
       </ul>
     </div>
     <div class="col-md-4">
       <h3>Dinner Recipes</h3>
       <ul>
-        <li *ngFor="let recipe of recipeList">
-          {{ recipe.name }}
-          <p>{{ recipe.description }}</p>
+        <li *ngFor="let recipe of dinnerRecipes" (click)='clicked(recipe._id)'
+        
+        [class.bg-dark]="isSelected(recipe)" [class.text-white]="isSelected(recipe)" routerLink="recipes">
+          {{ recipe.recipeName }}
+         
         </li>
       </ul>
     </div>
@@ -90,5 +97,3 @@
 </div>
       </div>
 
-
-        -->

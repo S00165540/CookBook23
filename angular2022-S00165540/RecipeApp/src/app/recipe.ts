@@ -9,7 +9,7 @@ image: { url:String},
     cookTime:string,
     prepTime: string,
     mealType: string,
-    creadtedBy:string,
+    createdBy:string,
     isFavorite:boolean
 }
 export class Banner {

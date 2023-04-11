@@ -23,11 +23,11 @@ export class RecipeService {
   findByRecipeName(recipeName: any): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(`${this.dataUri}?recipeName=${recipeName}`);
   }
-  findByMealType(mealType:any): Observable<Recipe[]> {
+  findByMealType(mealType:string): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(`${this.dataUri}?mealType=${mealType}`);
   }
 getCreatedBy(createdBy:string): Observable<Recipe[]> {
-  return this.http.get<Recipe[]>(`${this.dataUri}?createdBy=seafra`);
+  return this.http.get<Recipe[]>(`${this.dataUri}?createdBy=${createdBy}`);
 }
   getRecipes(): Observable<Recipe[]> {
     console.log("get recipes called");

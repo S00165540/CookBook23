@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   recipes: Recipe[] = [];
   recipeList: Recipe[] = [];
   message: string = "";
-
+  myRecipes!: Recipe[] ;
   user$ = this.auth.user$;
   code$ = this.user$.pipe(map((user) => JSON.stringify(user, null)));
   showRecipeForm:boolean = false;
@@ -27,19 +27,18 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     
 
-    this.recipeService.getCreatedBy('seafra').subscribe({
-      next: (value: Recipe[])=> this.recipeList = value,
-      complete: () => console.log('recipe service finished'),
-      error: (mess) => this.message = mess
+    this.recipeService.getCreatedBy('seafra')
+     .subscribe((recipes: Recipe[]) => {
+      this.myRecipes = recipes;
 
-    })
+    });
   }
   openAddRecipe(): void {
  this.router.navigate(['/recipe-form']);
 
   }
   openEditRecipe(): void {
-    this.showRecipeForm = true;
+    this.router.navigate(['/recipe-form']);
   }
   dismissAlert() {
     this.message = "";
@@ -74,6 +73,20 @@ export class ProfileComponent implements OnInit {
       });
 
     this.ngOnInit();
+  }
+
+  clicked (id:any): void {
+    this.router.navigate(['/recipes', id]);
+    
+    
+  }
+  isSelected(recipe: Recipe): boolean {
+    if (!recipe || !this.currentRecipe) {
+      return false;
+    }
+    else {
+      return recipe._id === this.currentRecipe._id;
+    }
   }
 
   addNewRecipe(newRecipe: Recipe): void {

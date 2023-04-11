@@ -29,10 +29,10 @@ const recipeSchema = new mongoose.Schema({
     cookTime: String,
     prepTime:String,
     mealType: String,
-    createdBy: { type:mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    createdBy: String,
+   
     isFavorite: { type: Boolean, default: false }
-}
+
 
 })
 

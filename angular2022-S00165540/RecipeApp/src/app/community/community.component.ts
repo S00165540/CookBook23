@@ -23,19 +23,33 @@ export class CommunityComponent {
   currentRecipe : Recipe | undefined;
   showRecipeForm:boolean = false;
   
+  breakfastRecipes!: Recipe[] ;
+  lunchRecipes!: Recipe[] ;
+  dinnerRecipes!: Recipe[] ;
 
   favoriteRecipes: Recipe[] =  this.recipeList.filter(recipe => recipe.isFavorite);;
   constructor(private  recipeService: RecipeService, private https: HttpClient, private router: Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.recipeService.getRecipes().subscribe(
-      recipes => {
-        this.recipes = recipes;
-        this.favoriteRecipes = recipes.filter(recipe => recipe.isFavorite); // Access the isFavorite property on the Recipe object
-      },
-      error => console.error(error)
-    );
-
+    // this.recipeService.getRecipes().subscribe(
+    //   recipes => {
+    //     this.recipes = recipes;
+    //     this.favoriteRecipes = recipes.filter(recipe => recipe.isFavorite); // Access the isFavorite property on the Recipe object
+    //   },
+    //   error => console.error(error)
+    // );
+    this.recipeService.findByMealType('breakfast')
+    .subscribe((recipes: Recipe[]) => {
+      this.breakfastRecipes = recipes;
+    });
+  this.recipeService.findByMealType('lunch')
+    .subscribe((recipes: Recipe[]) => {
+      this.lunchRecipes = recipes;
+    });
+  this.recipeService.findByMealType('dinner')
+    .subscribe((recipes: Recipe[]) => {
+      this.dinnerRecipes = recipes;
+    });
     }
  
 
@@ -55,9 +69,6 @@ export class CommunityComponent {
     
   }
   
-
-
-
         // data => {
         //   this.recipes = data;
         //   console.log(data);
@@ -65,8 +76,6 @@ export class CommunityComponent {
         // error => {
         //   console.log(error);
         // });
-
-  
 
 
   dismissAlert() {

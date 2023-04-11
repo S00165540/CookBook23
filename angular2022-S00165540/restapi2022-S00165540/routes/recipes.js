@@ -30,23 +30,31 @@ router.post('/', async (req, res) => {
 
 
 router.get('/', async (req,res) => {
-    const { recipeName} = req.query;
+    const { recipeName, mealType, createdBy} = req.query;
 
     let filter = {};
   
     if (recipeName) {
       filter.recipeName = { $regex: `${recipeName}`, $options: 'i'};
     }
+    if (mealType) {
+        filter.mealType = {$regex: `${mealType}`, $options: 'i'};
+    }
+    if (createdBy) {
+        filter.createdBy = {$regex: `${createdBy}`, $options: 'i'};
+    }
     try {
 
         const recipes = await Recipe
         .find(filter)
-        res.json(recipes);
-    
+        res.json(recipes); 
+
     }  catch (error) {
         res.status(500).json('db error ' + error)
     
     }
+
+   
   })
 router.get('/:id', async (req,res) =>  {
 
